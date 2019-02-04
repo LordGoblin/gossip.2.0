@@ -13,7 +13,17 @@ def index_welcome
 end
 
 def index_accueil
-	puts "lol"*50
+	@goss = Gossip.all
+end
+
+def index_potin_post
+	@goss = Gossip.find(params["gossbo"])
+end
+
+def index_user_post
+	@use = User.find(params["usebo"])
+	puts "***********************"
+	puts @use.first_name
 end
 
 end

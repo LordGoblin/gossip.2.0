@@ -1,0 +1,13 @@
+<div class="d-flex flex-column">
+	<div>
+		<h1>voila le gossip numero : <%= @goss.id %></h1>
+	</div>
+	<div>
+		<h3>titre : <%= @goss.title %></h2>
+		<p><%= @goss.content %></p>
+		<p>crée le : <%= @goss.created_at %></p>
+		<br/>
+		<br/>
+		<a class="" href="/accueil/user/<%= @goss.user.id %>">potin de : <%= @goss.user.first_name %></a>
+	</div>
+</div>
