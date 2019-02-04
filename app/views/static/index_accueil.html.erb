@@ -1,17 +1,17 @@
 <div class="d-flex flex-column">
-	<h1>BIENVENU sur le home du site</h1>
+    <div>
+	   <h1>BIENVENU sur le home du site</h1>
+    </div>
 
-	<div class="card-deck mb-3 text-center">
-		<% @goss.each do |gossip| %>
-    		<div class="card mb-4 bg-success">
-        		<div class="card-header border border-dark">
-        	  		<a class="text-warning" href="/accueil/<%= gossip.id %>"><%= gossip.user.first_name %><br/></a>
-        		</div>
-        		<div class="card-body">
-        			<a class="text-warning" href="/accueil/<%= gossip.id %>"><%= gossip.title %></a><br/>
-        			<a class="text-warning" href="/accueil/<%= gossip.id %>">voir le potin</a>
-        		</div>
-    		</div>
-   		<% end %>
-	</div>
+	<% @goss.each do |gossip| %>
+    	<div class="card mb-4 bg-success">
+        	<div class="card-header border border-dark ">
+        		<a class="text-warning" href="/accueil/<%= gossip.id %>"><%= gossip.user.first_name %><br/></a>
+        	</div>
+        	<div class="card-body">
+        		<a class="text-warning" href="/accueil/<%= gossip.id %>"><%= gossip.title %></a><br/>
+        		<a class="text-warning" href="/accueil/<%= gossip.id %>">voir le potin</a>
+        	</div>
+    	</div>
+   	<% end %>
 </div>
