@@ -22,9 +22,7 @@ end
 puts "ok User"
 
 20.times do
-  puts "lol"
-  goss = Gossip.new(user_id: rand(1..User.count), title: Faker::Lovecraft.deity, content: Faker::Lovecraft.fhtagn(3))
-  puts goss.title
+  goss = Gossip.new(user_id: rand(1..User.count), title: Faker::Lovecraft.deity, content: Faker::Simpsons.quote)
   goss.save
 end
 puts "ok gossip"
