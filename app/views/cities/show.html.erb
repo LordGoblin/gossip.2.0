@@ -1,0 +1,16 @@
+<div class="d-flex flex-column">
+
+	<div>
+		<h1>city numero: <%= @city.id %></h1>
+	</div>
+	<div>
+		<h3><%= @city.name %> <%= @city.zip_code %></h3>
+
+		<% @gossip.each do |a| %>
+
+			<p><%= a.title %></p>
+			<p><%= a.content %></p>
+
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="d-flex flex-column">
+	<div>
+		<h1>profil numero: <%= @use.id %></h1>
+	</div>
+	<div>
+		<h3><%= @use.first_name %><%= @use.last_name %></h2>
+		<p>first_name: <%= @use.first_name %></p>
+		<p>last_name: <%= @use.last_name %></p>
+		<p>description: <%= @use.description %></p>
+		<p>age: <%= @use.age %></p>
+		<p>crée le: <%= @use.created_at %></p>
+		<a class="" href="/cities/<%= @use.city.id %>">ville: <%= @use.city.name %></a>
+	</div>
+</div>

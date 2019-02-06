@@ -1,0 +1,20 @@
+<div class="d-flex flex-column">
+    <div>
+	   <h1>BIENVENU sur le home du site</h1>
+    </div>
+
+	<% @goss.each do |gossip| %>
+    	<div class="card mb-4 bg-success">
+        	<div class="card-header border border-dark ">
+        		<a class="text-warning" href="/gossips/<%= gossip.id %>"><%= gossip.user.first_name %><br/></a>
+        	</div>
+        	<div class="card-body">
+        		<a class="text-warning" href="/gossips/<%= gossip.id %>"><%= gossip.title %></a>
+                <br/>
+        		<a class="text-warning" href="/gossips/<%= gossip.id %>">voir le potin</a>
+                <br/>
+                <a class="text-warning" href="/gossips/<%= gossip.id %>/edit">edit</a>
+        	</div>
+    	</div>
+   	<% end %>
+</div>
