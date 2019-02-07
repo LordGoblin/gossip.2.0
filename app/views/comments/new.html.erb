@@ -1,0 +1,11 @@
+<h1>coucou ici create comment</h1>
+
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+
+    <%= label_tag 'commentaire' %>
+    <%= text_area_tag 'body' %>
+    <br /> <br />
+    <%= submit_tag "Create Post" %>
+
+<% end %>

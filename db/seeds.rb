@@ -26,3 +26,8 @@ puts "ok User"
   goss.save
 end
 puts "ok gossip"
+
+50.times do
+  com = Comment.new(user_id: rand(1..User.count), gossip_id: rand(1..Gossip.count), content: Faker::StarWars.quote)
+  com.save
+end

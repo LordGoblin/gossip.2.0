@@ -26,6 +26,10 @@ class GossipsController < ApplicationController
 
   def show
     @goss = Gossip.find(params["id"])
+    @com = @goss.comments
+    @nombre = @goss.comments.count
+    puts "*******************"
+    puts @nombre
   end
 
 	def create

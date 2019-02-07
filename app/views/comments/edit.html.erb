@@ -1,0 +1,14 @@
+<h1>coucou ici edite</h1>
+<a href="" class="btn btn-danger" data-confirm="sur?" data-method="delete">delete</a>
+
+<%= form_for [@goss, @com] do |f| %>
+
+	<div class="form-group">
+		<label>content du gossip</label>
+		<%= f.text_area :content, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">modifier gossip</button>
+	</div>
+
+<% end %>
