@@ -24,12 +24,13 @@ class CommentsController < ApplicationController
   	end
 
 	def create
-		@com = Comment.new(user_id: rand(1..User.count), gossip_id: params["gossip_id"], content: params["body"])
-  		if @com.save
+		@com = Comment.new(gossip_id: params["gossip_id"], content: params["body"])
+  	@com.user = current_user
+    if @com.save
     	redirect_to "/gossips/#{params["gossip_id"]}"
-  		else
+  	else
   		render :new
-  		end
+  	end
 	end
 
 end

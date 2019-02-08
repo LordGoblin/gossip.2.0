@@ -1,0 +1,32 @@
+<div class="d-flex flex-column text-center">
+	<div>
+		<h1 class="pt-3 pb-3 text-success">create users</h1>
+	</div>
+	<div>
+		<%= form_tag url_for(action: 'create'), method: "post" do %>
+			<div class="border border-dark bg-success pt-3 pb-3 pr-2 pl-2 text-warning">
+			    <%= label_tag 'first_name' %>   
+			    <%= text_field_tag 'first_name' %>
+			    <br /> <br />
+
+			    <%= label_tag 'last_name' %>   
+			    <%= text_field_tag 'last_name' %>
+			    <br /> <br />
+
+			    <%= label_tag 'email' %>   
+			    <%= text_field_tag 'email' %>
+			    <br /> <br />
+
+			    <%= label_tag 'password' %>   
+			    <%= text_field_tag 'password' %>
+			    <br /> <br />
+
+			    <%= label_tag 'description' %>
+			    <%= text_area_tag 'description' %>
+			    <br /> <br />
+
+			    <%= submit_tag "Create user" %>
+			</div>
+		<% end %>
+	</div>
+</div>

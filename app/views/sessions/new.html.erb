@@ -1,0 +1,21 @@
+<div class="d-flex flex-column text-center">
+	<div>
+		<h1 class="pt-3 pb-3 text-success">connection</h1>
+	</div>
+	<div>
+		<%= form_tag url_for(action: 'create'), method: "post" do %>
+			<div class="border border-dark bg-success pt-3 pb-3 pr-2 pl-2 text-warning">
+
+			    <%= label_tag 'email' %>   
+			    <%= text_field_tag 'email' %>
+			    <br /> <br />
+
+			    <%= label_tag 'mot de passe' %>   
+			    <%= text_field_tag 'password' %>
+			    <br /> <br />
+
+			    <%= submit_tag "connection" %>
+			</div>
+		<% end %>
+	</div>
+</div>

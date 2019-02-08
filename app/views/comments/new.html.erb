@@ -1,11 +1,18 @@
-<h1>coucou ici create comment</h1>
+<div class="d-flex flex-column text-center">
+	<div>
+		<h1 class="pt-3 pb-3 text-success">create comment</h1>
+	</div>
+	<div class="border border-dark bg-success pt-3 pb-3 pr-2 pl-2 text-warning">
+		<div>
+			<%= form_tag url_for(action: 'create'), method: "post" do %>
+			
 
-
-<%= form_tag url_for(action: 'create'), method: "post" do %>
-
-    <%= label_tag 'commentaire' %>
-    <%= text_area_tag 'body' %>
-    <br /> <br />
-    <%= submit_tag "Create Post" %>
-
-<% end %>
+				    <%= label_tag 'commentaire' %>
+				    <%= text_area_tag 'body' %>
+				    <br /> <br />
+				    <%= submit_tag "Create Post" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,19 +1,22 @@
 <div class="d-flex flex-column">
-    <div>
-	   <h1>BIENVENU sur le home du site</h1>
-    </div>
+      <div>
+        <h1 class="pt-3 pb-3 text-success">accueil de gossips</h3>
+      </div>
 
 	<% @goss.each do |gossip| %>
-    	<div class="card mb-4 bg-success">
-        	<div class="card-header border border-dark ">
-        		<a class="text-warning" href="/gossips/<%= gossip.id %>"><%= gossip.user.first_name %><br/></a>
+    	<div class="card mb-4 bg-success text-center">
+        	<div class="card-header border border-dark bg-info">
+        		<a class="text-warning" href="/gossips/<%= gossip.id %>"><%= gossip.title %><br/></a>
         	</div>
         	<div class="card-body">
-        		<a class="text-warning" href="/gossips/<%= gossip.id %>"><%= gossip.title %></a>
+        		<a class="text-warning" href="/gossips/<%= gossip.id %>">author:<%= gossip.user.first_name %></a>
                 <br/>
-        		<a class="text-warning" href="/gossips/<%= gossip.id %>">voir le potin</a>
                 <br/>
-                <a class="text-warning" href="/gossips/<%= gossip.id %>/edit">edit</a>
+                <% if current_user %>
+                    <a class="text-info" href="/gossips/<%= gossip.id %>/edit">edit</a>
+                <% else %>
+                    <a class="text-info" href="/sessions/new">edit</a>
+                <% end %>
         	</div>
     	</div>
    	<% end %>

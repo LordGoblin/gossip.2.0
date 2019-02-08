@@ -1,14 +1,18 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column text-center">
 	<div>
-		<h1>profil numero: <%= @use.id %></h1>
+		<h1 class="pt-3 pb-3 text-success">profil numero: <%= @use.id %></h1>
 	</div>
-	<div>
+	<div class="border border-dark bg-success pt-3 pb-3 pr-2 pl-2 text-warning">
 		<h3><%= @use.first_name %><%= @use.last_name %></h2>
 		<p>first_name: <%= @use.first_name %></p>
 		<p>last_name: <%= @use.last_name %></p>
 		<p>description: <%= @use.description %></p>
 		<p>age: <%= @use.age %></p>
 		<p>crée le: <%= @use.created_at %></p>
-		<a class="" href="/cities/<%= @use.city.id %>">ville: <%= @use.city.name %></a>
+		<div>
+			<p class="text-success">
+				<a class="text-warning h4" href="/cities/<%= @use.city.id %>">ville: <%= @use.city.name %></a>
+			</p>
+		</div>
 	</div>
 </div>

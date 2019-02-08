@@ -1,16 +1,23 @@
-<div class="d-flex flex-column">
-
-	<div>
+<div class="d-flex flex-column text-center">
+	<br>
+	<div class="border border-dark bg-success pt-3 pb-3 pr-2 pl-2 text-warning">
 		<h1>city numero: <%= @city.id %></h1>
-	</div>
-	<div>
 		<h3><%= @city.name %> <%= @city.zip_code %></h3>
+	</div>
+	<br>
+	<br>
+	<div>
+		<h1 class="pt-3 pb-3 text-success">gossips:</h1>
+	</div>
 
+	<br/>
 		<% @gossip.each do |a| %>
+			<div class="border border-dark bg-success pt-3 pb-3 pr-2 pl-2 text-warning">
 
-			<p><%= a.title %></p>
-			<p><%= a.content %></p>
-
+				<p><%= a.title %></p>
+				<p><%= a.content %></p>
+			</div>
+			<br/>
 		<% end %>
 	</div>
 </div>

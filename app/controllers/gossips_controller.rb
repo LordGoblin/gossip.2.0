@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, only: [:new, :edit]
+  before_action :user_match, only: [:edit, :destroy]
 
   def edit
     @gossip = Gossip.find(params[:id])
@@ -33,12 +35,26 @@ class GossipsController < ApplicationController
   end
 
 	def create
-		@gossip = Gossip.new(user_id: rand(1..User.count), title: params["title"], content: params["body"]) # avec xxx qui sont les données obtenues à partir du formulaire
-  		if @gossip.save
+		@gossip = Gossip.new(title: params["title"], content: params["body"]) # avec xxx qui sont les données obtenues à partir du formulaire
+  	@gossip.user = current_user
+    if @gossip.save
     	redirect_to "/gossips"
-  		else
+  	else
   		redirect_to "/gossips/new"
-  		end
+  	end
 	end
+
+  def authenticate_user
+    unless current_user
+      redirect_to "/sessions/new"
+    end
+  end
+
+  def user_match
+    @gossip = Gossip.find(params[:id])
+    unless current_user.id == @gossip.user.id
+      redirect_to "/sessions/new"
+    end
+  end
 
 end

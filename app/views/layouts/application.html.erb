@@ -15,12 +15,34 @@
 
   <body class="bg-warning">
     
-    <nav class="pt-3 d-flex justify-content-between bg-success">
+    <nav class="pt-4 pb-2 d-flex justify-content-between bg-success">
       <a class="pr-5 text-warning" href="/gossips">accueil</a>
+
+      <% if current_user %>
+      <a class="pr-5 text-danger h4" href="/sessions/new" data-method="delete">deconect</a>
+      <div>
+        <h3 class="text-warning">Bienvenue <%= User.find_by(id: session[:user_id]).first_name %> !</h3>
+      </div>
+      <% else %>
+      <div>
+        <a class="pr-5 text-info h4" href="/users/new">inscription</a>
+        <a class="text-info h4" href="/sessions/new">login</a>
+      </div>
+      <div>
+        <h3 class="text-warning">Bienvenue inscrit toi vite!</h3>
+      </div>
+      <% end %>
+
       <div>
         <a class="pr-3 text-warning" href="/team">team</a>
         <a class="pr-5 text-warning" href="/contact">contact</a>
+
+        <% if current_user %>
         <a class="pr-5 text-warning" href="/gossips/new">create gossip</a>
+        <% else %>
+        <a class="pr-5 text-warning" href="/sessions/new">create gossip</a>
+        <% end %>
+
       </div>
     </nav>
 

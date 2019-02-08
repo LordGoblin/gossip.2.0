@@ -1,29 +1,42 @@
 <div class="d-flex flex-column">
-	<div>
-		<h1>voila le gossip numero : <%= @goss.id %></h1>
+	<div class="text-center">
+		<h1 class="pt-3 pb-3 text-success">voila le gossip numero : <%= @goss.id %></h1>
 	</div>
-	<div>
-		<h3>titre : <%= @goss.title %></h2>
-		<p><%= @goss.content %></p>
-		<p>crée le : <%= @goss.created_at %></p>
+	<div class="text-center bg-success border border-dark">
+		<div>
+			<h3 class="text-warning border border-dark bg-info pt-2 pb-2">titre : <%= @goss.title %></h2>
+		</div>
+		<p class="text-warning"><%= @goss.content %></p>
+		<p class="text-warning">crée le : <%= @goss.created_at %></p>
 		<br/>
-		<br/>
-		<a class="" href="/users/<%= @goss.user.id %>">potin de : <%= @goss.user.first_name %></a>
-		<a href="" class="btn btn-danger" data-confirm="sur?" data-method="delete">delete</a>
+		<a class="text-info pr-5" href="/users/<%= @goss.user.id %>">author : <%= @goss.user.first_name %></a>
+		<% if current_user %>
+			<a href="" class="btn btn-danger " data-confirm="sur?" data-method="delete">delete</a>
+		<% else %>
+			<a href="/sessions/new" class="btn btn-danger " data-confirm="sur?" data-method="delete">delete</a>
+		<% end %>
 	</div>
 	<div>
 		<br /> <br />
-		<a class="btn btn-primary" href="<%= new_gossip_comment_path(@goss.id) %>">Comment</a>
-		<p>nombre de comment : <%= @nombre %></p>
+		<% if current_user %>
+			<a class="btn btn-primary" href="<%= new_gossip_comment_path(@goss.id) %>">Comment</a>
+		<% else %>
+			<a class="btn btn-primary" href="/sessions/new">Comment</a>
+		<% end %>
+			<p>nombre de comment : <%= @nombre %></p>
 		<br><br>
 	</div>
-	<div class="d-flex flex-column">
+	<div class="text-center d-flex flex-column">
 		<% @com.each do |com| %>
     		<div class="card mb-4 bg-success">
         		<div class="card-header border border-dark ">
-        			<a class="text-warning" href=""><%= com.content %><br/></a>
-        			<a class="text-warning" href=""><%= com.user.first_name %><br/></a>
-        			<a class="pr-5 text-warning" href="<%= edit_gossip_comment_path(@goss.id, com.id) %>">edit commentaire</a>
+        			<p class="text-warning"><%= com.user.first_name %><br/></p>
+        			<p class="text-warning"><%= com.content %><br/></p>
+        			<% if current_user %>
+        				<a class="pr-5 text-warning text-info" href="<%= edit_gossip_comment_path(@goss.id, com.id) %>">edit</a>
+        			<% else %>
+        				<a class="pr-5 text-warning text-info" href="/sessions/new">edit</a>
+        			<% end %>
         		</div>
     		</div>
    		<% end %>
